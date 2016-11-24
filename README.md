@@ -1,8 +1,6 @@
-# Cordova Hello World Plugin
+# Study Extract Utility tool for B4R APIU
 
-Simple plugin that returns your string prefixed with hello.
-
-Greeting a user with "Hello, world" is something that could be done in JavaScript. This plugin provides a simple example demonstrating how Cordova plugins work.
+Extracting study and data_collection from Breeding 4 Rice API via local zip json file
 
 ## Using
 
@@ -13,7 +11,7 @@ Create a new Cordova Project
 Install the plugin
 
     $ cd hello
-    $ cordova plugin add https://github.com/don/cordova-plugin-hello.git
+    $ cordova plugin add https://github.com/m00g33k/cordova-study-extract.git
     
 
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
