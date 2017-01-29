@@ -6,7 +6,9 @@
   <name>Study Extract</name>
  
   <engines>
-    <engine name="cordova" version=">=3.4.0"/>
+    <engine name="cordova" version=">=6.0.0"/>
+    <engine name="cordova-android" version=">=4.0.0">
+    
   </engines>
 
   <asset src="www/studyextract.js" target="js/studyextract.js"/>
@@ -25,7 +27,7 @@
 
     <source-file src="src/android/StudyExtract.java" target-dir="src/org/irri/breeding4rice/cordova/"/>
 
-        <framework src="com.google.code.gson:2.3"/>
+        <framework src="com.google.code.gson:2+"/>
   </platform>
 
 </plugin>
