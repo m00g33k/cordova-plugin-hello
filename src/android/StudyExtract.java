@@ -1,6 +1,7 @@
 package org.irri.breeding4rice.cordova;
 
 import org.apache.cordova.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -24,59 +25,67 @@ import com.google.gson.stream.JsonReader;
 public class StudyExtract extends CordovaPlugin {
 
     @Override
-    public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext) throws JSONException {
 
         if (action.equals("extractFromFile")) {
-            JsonReader reader;
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    JsonReader reader;
 
-            String progress = "nothing";
-            Gson gson = new Gson();
-            ObservationPlot obv = new ObservationPlot();
-            try {
-                reader = new JsonReader(new FileReader(data.getString(0)));
-                reader.beginObject();
-                String endPlot = "";
-                while (reader.hasNext()) {
-                    String name = reader.nextName();
-
-                    if (name.equals("result")) {
-                        progress = "result in";
+                    String progress = "nothing";
+                    Gson gson = new Gson();
+                    ObservationPlot obv = new ObservationPlot();
+                    try {
+                        reader = new JsonReader(new FileReader(data.getString(0)));
                         reader.beginObject();
-
+                        String endPlot = "";
                         while (reader.hasNext()) {
-                            String result_name = reader.nextName();
-                            if (result_name.equals("data")) {
-                                progress = "data in";
-                                reader.beginArray();
-                                Integer loaded = 0;
+                            String name = reader.nextName();
+
+                            if (name.equals("result")) {
+                                progress = "result in";
+                                reader.beginObject();
+
                                 while (reader.hasNext()) {
-                                    System.out.println("reader " + loaded++);
-                                    obv = gson.fromJson(reader, ObservationPlot.class);
-                                    //                        		reader.skipValue();
-                                    // System.out.println(gson.toJson(obv));
+                                    String result_name = reader.nextName();
+                                    if (result_name.equals("data")) {
+                                        progress = "data in";
+                                        reader.beginArray();
+                                        Integer loaded = 0;
+                                        while (reader.hasNext()) {
+                                            System.out.println("reader " + loaded++);
+                                            obv = gson.fromJson(reader, ObservationPlot.class);
+                                            //                        		reader.skipValue();
+                                            // System.out.println(gson.toJson(obv));
+                                            PluginResult result = new PluginResult(PluginResult.Status.OK,gson.toJson(obv));
+                                            result.setKeepCallback(true);
+                                            callbackContext.sendPluginResult(result);
+                                            
+                                        }
+                                        reader.endArray();
+                                    } else {
+                                        reader.skipValue();
+                                    }
+
                                 }
-                                reader.endArray();
-                            } else {
+
+                                reader.endObject();
+                            } else {// unexpected value, skip it or generate error
                                 reader.skipValue();
                             }
-
                         }
 
                         reader.endObject();
-                    } else {// unexpected value, skip it or generate error
-                        reader.skipValue();
+                        reader.close();
+
+                        callbackContext.success("{\"status\":\"done\"}");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        callbackContext.error("error:");
+
                     }
                 }
-
-                reader.endObject();
-                reader.close();
-
-                callbackContext.success(gson.toJson(obv));
-            } catch (Exception e) {
-                e.printStackTrace();
-                callbackContext.error("error:");
-
-            }
+            });
 
             return true;
 
