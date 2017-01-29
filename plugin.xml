@@ -25,7 +25,7 @@
 
     <source-file src="src/android/StudyExtract.java" target-dir="src/org/irri/breeding4rice/cordova/"/>
 
-        <framework src="com.google.code.gson:+"/>
+        <framework src="src/android/libs/gson-2.8.0.jar"/>
   </platform>
 
 </plugin>
