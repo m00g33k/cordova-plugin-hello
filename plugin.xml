@@ -4,7 +4,7 @@
         version="0.7.0">
 
   <name>Study Extract</name>
-
+ 
   <engines>
     <engine name="cordova" version=">=3.4.0"/>
   </engines>

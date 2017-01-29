@@ -36,7 +36,7 @@ public class StudyExtract extends CordovaPlugin {
 
 
             return true;
-
+ 
         } else {
             
             return false;
