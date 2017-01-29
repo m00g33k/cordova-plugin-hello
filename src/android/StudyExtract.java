@@ -16,13 +16,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import org.codehaus.jackson.JsonEncoding;
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonToken;
-import org.codehaus.jackson.map.JsonMappingException;
+import com.google.gson.stream.JsonReader;
 
 public class StudyExtract extends CordovaPlugin {
 
