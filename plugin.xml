@@ -24,6 +24,8 @@
     </config-file>
 
     <source-file src="src/android/StudyExtract.java" target-dir="src/org/irri/breeding4rice/cordova/"/>
+
+        <framework src="org.codehaus.jackson:1.9.12"/>
   </platform>
 
 </plugin>

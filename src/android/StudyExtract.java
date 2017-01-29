@@ -16,6 +16,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import org.codehaus.jackson.JsonEncoding;
+import org.codehaus.jackson.JsonFactory;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonToken;
+import org.codehaus.jackson.map.JsonMappingException;
+
 public class StudyExtract extends CordovaPlugin {
 
     @Override
@@ -24,28 +32,7 @@ public class StudyExtract extends CordovaPlugin {
         if (action.equals("extractFromFile")) {
 
 
-
-            File file = new File(data.getString(0),data.getString(1));
-
-            //Read text from file
-            StringBuilder text = new StringBuilder();
-
-            try {
-                BufferedReader br = new BufferedReader(new FileReader(file));
-                String line;
-
-                while ((line = br.readLine()) != null) {
-                    text.append(line);
-                    text.append('\n');
-                }
-                br.close();
-                
-                        callbackContext.success("file success reading");
-            }
-            catch (IOException e) {
-                //You'll need to add proper error handling here
-                        callbackContext.error("file error reading");
-            }
+            callbackContext.success("file success reading");
 
 
             return true;
