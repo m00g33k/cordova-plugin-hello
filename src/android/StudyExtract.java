@@ -31,7 +31,7 @@ public class StudyExtract extends CordovaPlugin {
 
             String progress = "nothing";
             Gson gson = new Gson();
-            ObservationPlot obv;
+            ObservationPlot obv = new ObservationPlot();
             try {
                 reader = new JsonReader(new FileReader(data.getString(0)));
                 reader.beginObject();
