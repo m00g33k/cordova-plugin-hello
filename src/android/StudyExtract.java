@@ -252,7 +252,21 @@ public class StudyExtract extends CordovaPlugin {
         private String plotKey;
 
         private String plotCode;
+        private String designation;
+        private String generation;
 
+        public String getDesignation(){
+            return designation;
+        }
+        public String setDesignation(String designation){
+            this.designation = designation;
+        }
+        public String getGeneration(){
+            return generation;
+        }
+        public String setGeneration(String generation){
+            this.generation = generation;
+        }
         public String getPlotKey() {
             return plotKey;
         }
