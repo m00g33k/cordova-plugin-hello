@@ -21,11 +21,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.util.Log;
 public class StudyExtract extends CordovaPlugin {
 
+
+    public SQLiteDatabase database ;
     @Override
-    public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext) throws JSONException {
+    public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext)
+            throws JSONException {
 
         if (action.equals("extractFromFile")) {
             cordova.getThreadPool().execute(new Runnable() {
@@ -57,10 +65,11 @@ public class StudyExtract extends CordovaPlugin {
                                             obv = gson.fromJson(reader, ObservationPlot.class);
                                             //                        		reader.skipValue();
                                             // System.out.println(gson.toJson(obv));
-                                            PluginResult result = new PluginResult(PluginResult.Status.OK,gson.toJson(obv));
+                                            PluginResult result = new PluginResult(PluginResult.Status.OK,
+                                                    gson.toJson(obv));
                                             result.setKeepCallback(true);
                                             callbackContext.sendPluginResult(result);
-                                            
+
                                         }
                                         reader.endArray();
                                     } else {
@@ -89,7 +98,36 @@ public class StudyExtract extends CordovaPlugin {
 
             return true;
 
-        } else {
+        } 
+        else if (action.equals("extractToSql")){
+
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    JsonReader reader;
+
+                    String progress = "nothing";
+
+                    String studyName = data.getString(0);
+                    String mainFolderPath = data.getString(1);
+                    String extractedJsonPath = data.getString(2);
+
+
+                    Gson gson = new Gson();
+                    ObservationPlot obv = new ObservationPlot();
+                    try {
+                        File file = new File(mainFolderPath,studyName);
+                        database = SQLiteDatabase.openOrCreateDatabase(file, null);
+                        callbackContext.success("{\"status\":\"done\"}");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        callbackContext.error("error:");
+
+                    }
+                }
+            });
+
+            return true;
+        }else {
 
             return false;
 
@@ -255,18 +293,22 @@ public class StudyExtract extends CordovaPlugin {
         private String designation;
         private String generation;
 
-        public String getDesignation(){
+        public String getDesignation() {
             return designation;
         }
-        public void setDesignation(String designation){
+
+        public void setDesignation(String designation) {
             this.designation = designation;
         }
-        public String getGeneration(){
+
+        public String getGeneration() {
             return generation;
         }
-        public void setGeneration(String generation){
+
+        public void setGeneration(String generation) {
             this.generation = generation;
         }
+
         public String getPlotKey() {
             return plotKey;
         }
