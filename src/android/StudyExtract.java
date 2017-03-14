@@ -142,14 +142,15 @@ public class StudyExtract extends CordovaPlugin {
 
                     String progress = "nothing";
 
-                    String studyName = data.getString(0);
-                    String mainFolderPath = data.getString(1);
-                    String extractedJsonPath = data.getString(2);
 
 
                     Gson gson = new Gson();
                     ObservationPlot obv = new ObservationPlot();
                     try {
+
+                    String studyName = data.getString(0);
+                        String mainFolderPath = data.getString(1);
+                        String extractedJsonPath = data.getString(2);
                         File file = new File(mainFolderPath,studyName);
                         database = SQLiteDatabase.openOrCreateDatabase(file, null);
                         database.execSQL(CREATE_OBSERVATION_PLOT_TABLE);
