@@ -31,6 +31,41 @@ public class StudyExtract extends CordovaPlugin {
 
 
     public SQLiteDatabase database ;
+
+    String CREATE_OBSERVATION_PLOT_TABLE = "CREATE TABLE `ObservationPlot` (" +
+     "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + 
+     "`observationUnitDbId` TEXT," +
+     "`observationUnitName` TEXT," +
+            "`germplasmDbId` TEXT," +
+            "`pedigree` TEXT," +
+            "`entryNumber` TEXT," +
+            "`entryType` TEXT," +
+            "`plotNumber` TEXT," +
+            "`plantNumber` TEXT," +
+            "`blockNumber` TEXT," +
+            "`X` TEXT," +
+            "`Y` TEXT," +
+            "`replication` TEXT," +
+            "`plotKey` TEXT," +
+            "`plotCode` TEXT," +
+            "`lastModifiedBy` TEXT," +
+            "`lastModifiedDate` TEXT," +
+            "`isModified` BOOLEAN," + ");";
+    String CREATE_OBSERVATION_DATA = "CREATE TABLE `ObservationData` ("
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + 
+            "`observationUnitDbId` TEXT," +
+            "`observationVariableName` TEXT," +
+            "`observationVariableId` TEXT," +
+            "`collector` TEXT," +
+            "`observationTimeStamp` TEXT," +
+            "`value` TEXT," +
+            "`status` TEXT," 
+            + ");";
+            String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT,"
+            + "`modifiedValues` TEXT,"  + "`collector` TEXT,"
+            + "`observationTimeStamp` TEXT,"  +");";
+
     @Override
     public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext)
             throws JSONException {
@@ -117,6 +152,9 @@ public class StudyExtract extends CordovaPlugin {
                     try {
                         File file = new File(mainFolderPath,studyName);
                         database = SQLiteDatabase.openOrCreateDatabase(file, null);
+                        database.execSQL(CREATE_OBSERVATION_PLOT_TABLE);
+                        database.execSQL(CREATE_OBSERVATION_DATA);
+                        database.execSQL(CREATE_OBSERVATION_AUDITLOGS);
                         callbackContext.success("{\"status\":\"done\"}");
                     } catch (Exception e) {
                         e.printStackTrace();
