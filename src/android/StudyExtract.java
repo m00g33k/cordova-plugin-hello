@@ -50,7 +50,7 @@ public class StudyExtract extends CordovaPlugin {
             "`plotCode` TEXT," +
             "`lastModifiedBy` TEXT," +
             "`lastModifiedDate` TEXT," +
-            "`isModified` BOOLEAN," + ");";
+            "`isModified` BOOLEAN" + ");";
     String CREATE_OBSERVATION_DATA = "CREATE TABLE `ObservationData` ("
             + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + 
             "`observationUnitDbId` TEXT," +
@@ -59,12 +59,12 @@ public class StudyExtract extends CordovaPlugin {
             "`collector` TEXT," +
             "`observationTimeStamp` TEXT," +
             "`value` TEXT," +
-            "`status` TEXT," 
+            "`status` TEXT" 
             + ");";
             String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
             + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT,"
             + "`modifiedValues` TEXT,"  + "`collector` TEXT,"
-            + "`observationTimeStamp` TEXT,"  +");";
+            + "`observationTimeStamp` TEXT"  +");";
 
     @Override
     public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext)
