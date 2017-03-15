@@ -163,36 +163,36 @@ public class StudyExtract extends CordovaPlugin {
                                             //                        		reader.skipValue();
                                             // System.out.println(gson.toJson(obv));
                                             ContentValues plotValues = new ContentValues();
-                                            plotValues.set("observationUnitDbId",obv.getObservationUnitDbId());
-                                            plotValues.set("designation",obv.getAdditionalInfo().getDesignation());
-                                            plotValues.set("generation",obv.getAdditionalInfo().getGeneration());
-                                            plotValues.set("plotCode",obv.getAdditionalInfo().getPlotCode());
-                                            plotValues.set("plotKey",obv.getAdditionalInfo().getPlotKey());
-                                            plotValues.set("blockNumber",obv.getBlockNumber());
-                                            plotValues.set("entryNumber",obv.getEntryNumber());
-                                            plotValues.set("entryType",obv.getEntryType());
-                                            plotValues.set("germplasmDbId",obv.getGermplasmDbId());
-                                            plotValues.set("observationUnitName",obv.getObservationUnitName());
-                                            plotValues.set("pedigree",obv.getPedigree());
-                                            plotValues.set0("plantNumber",obv.getPlantNumber());
-                                            plotValues.set("plotNumber",obv.getPlotNumber());
-                                            plotValues.set("replication",obv.getReplication());
-                                            plotValues.set("X",Integer.parseInt(obv.getX()));
-                                            plotValues.set("Y",Integer.parseInt(obv.getY()));
-                                            plotValues.set("isModified",false);
-                                            plotValues.set("study",studyName);
+                                            plotValues.put("observationUnitDbId",obv.getObservationUnitDbId());
+                                            plotValues.put("designation",obv.getAdditionalInfo().getDesignation());
+                                            plotValues.put("generation",obv.getAdditionalInfo().getGeneration());
+                                            plotValues.put("plotCode",obv.getAdditionalInfo().getPlotCode());
+                                            plotValues.put("plotKey",obv.getAdditionalInfo().getPlotKey());
+                                            plotValues.put("blockNumber",obv.getBlockNumber());
+                                            plotValues.put("entryNumber",obv.getEntryNumber());
+                                            plotValues.put("entryType",obv.getEntryType());
+                                            plotValues.put("germplasmDbId",obv.getGermplasmDbId());
+                                            plotValues.put("observationUnitName",obv.getObservationUnitName());
+                                            plotValues.put("pedigree",obv.getPedigree());
+                                            plotValues.put("plantNumber",obv.getPlantNumber());
+                                            plotValues.put("plotNumber",obv.getPlotNumber());
+                                            plotValues.put("replication",obv.getReplication());
+                                            plotValues.put("X",Integer.parseInt(obv.getX()));
+                                            plotValues.put("Y",Integer.parseInt(obv.getY()));
+                                            plotValues.put("isModified",false);
+                                            plotValues.put("study",studyName);
                                             database.insert(OBSERVATION_PLOT_TABLE, null, plotValues);
                                             for(PlotObservationData obvData : obv.getObservations()){
                                                 ContentValues observationValues = new ContentValues();
-                                                observationValues.set("collector",obvData.getCollector());
-                                                observationValues.set("observationDbId",obvData.getObservationDbId());
-                                                observationValues.set("observationTimeStamp",obvData.getObservationTimeStamp());
-                                                observationValues.set("observationVariableId",obvData.getObservationVariableId());
-                                                observationValues.set("observationVariableName",obvData.getObservationVariableName());
+                                                observationValues.put("collector",obvData.getCollector());
+                                                observationValues.put("observationDbId",obvData.getObservationDbId());
+                                                observationValues.put("observationTimeStamp",obvData.getObservationTimeStamp());
+                                                observationValues.put("observationVariableId",obvData.getObservationVariableId());
+                                                observationValues.put("observationVariableName",obvData.getObservationVariableName());
 
-                                                observationValues.set("value",obvData.getValue());
+                                                observationValues.put("value",obvData.getValue());
 
-                                                observationValues.set("status","synced");
+                                                observationValues.put("status","synced");
                                                 database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
 
                                             }
