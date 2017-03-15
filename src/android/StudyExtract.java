@@ -141,7 +141,7 @@ public class StudyExtract extends CordovaPlugin {
                         database.execSQL(CREATE_OBSERVATION_AUDITLOGS);
                         database.beginTransaction();    
                         
-                        reader = new JsonReader(new FileReader(data.getString(0)));
+                        reader = new JsonReader(new FileReader(extractedJsonPath));
                         reader.beginObject();
                         String endPlot = "";
                         while (reader.hasNext()) {
