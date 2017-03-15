@@ -196,7 +196,7 @@ public class StudyExtract extends CordovaPlugin {
                                                 database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
 
                                             }
-                                            database.setTransactionSuccessful();
+                                          
 
 
                                         }
@@ -215,6 +215,7 @@ public class StudyExtract extends CordovaPlugin {
 
                         reader.endObject();
                         reader.close();
+                        database.setTransactionSuccessful();
                         database.endTransaction();
                         
                         callbackContext.success("{\"status\":\"done\",\"error\":\"false\"}");
