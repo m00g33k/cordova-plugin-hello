@@ -27,44 +27,28 @@ import android.database.sqlite.SQLiteStatement;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
+import android.content.ContentValues;
+
 public class StudyExtract extends CordovaPlugin {
 
+    public SQLiteDatabase database;
+    String OBSERVATION_PLOT_TABLE = "ObservationPlot";
+    String CREATE_OBSERVATION_PLOT_TABLE = "CREATE TABLE `" + OBSERVATION_PLOT_TABLE + "` ("
+            + "	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "	`study`	TEXT,"
+            + "	`observationUnitDbId`	TEXT," + "	`observationUnitName`	TEXT," + "	`germplasmDbId`	TEXT,"
+            + "	`pedigree`	TEXT," + "	`entryNumber`	TEXT," + "	`plotNumber`	INTEGER," + "	`plantNumber`	TEXT,"
+            + "	`blockNumber`	TEXT," + "	`designation`	TEXT," + "	`generation`	TEXT," + "	`plotCode`	TEXT,"
+            + "	`plotKey`	TEXT," + "	`X`	INTEGER," + "	`Y`	INTEGER," + "	`replication`	TEXT,"
+            + "	`isModified`	BOOLEAN" + ");";
 
-    public SQLiteDatabase database ;
-
-    String CREATE_OBSERVATION_PLOT_TABLE = "CREATE TABLE `ObservationPlot` (" +
-     "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + 
-     "`observationUnitDbId` TEXT," +
-     "`observationUnitName` TEXT," +
-            "`germplasmDbId` TEXT," +
-            "`pedigree` TEXT," +
-            "`entryNumber` TEXT," +
-            "`entryType` TEXT," +
-            "`plotNumber` TEXT," +
-            "`plantNumber` TEXT," +
-            "`blockNumber` TEXT," +
-            "`X` TEXT," +
-            "`Y` TEXT," +
-            "`replication` TEXT," +
-            "`plotKey` TEXT," +
-            "`plotCode` TEXT," +
-            "`lastModifiedBy` TEXT," +
-            "`lastModifiedDate` TEXT," +
-            "`isModified` BOOLEAN" + ");";
-    String CREATE_OBSERVATION_DATA = "CREATE TABLE `ObservationData` ("
-            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + 
-            "`observationUnitDbId` TEXT," +
-            "`observationVariableName` TEXT," +
-            "`observationVariableId` TEXT," +
-            "`collector` TEXT," +
-            "`observationTimeStamp` TEXT," +
-            "`value` TEXT," +
-            "`status` TEXT" 
-            + ");";
-            String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
+    String OBSERVATION_DATA_TABLE = "ObservationData";
+    String CREATE_OBSERVATION_DATA = "CREATE TABLE `"+ OBSERVATION_DATA_TABLE+"` ("
             + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT,"
-            + "`modifiedValues` TEXT,"  + "`collector` TEXT,"
-            + "`observationTimeStamp` TEXT"  +");";
+            + "`observationVariableName` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT,"
+            + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`status` TEXT" + ");";
+    String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT,"
+            + "`modifiedValues` TEXT," + "`collector` TEXT," + "`observationTimeStamp` TEXT" + ");";
 
     @Override
     public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext)
@@ -100,8 +84,7 @@ public class StudyExtract extends CordovaPlugin {
                                             obv = gson.fromJson(reader, ObservationPlot.class);
                                             //                        		reader.skipValue();
                                             // System.out.println(gson.toJson(obv));
-                                            PluginResult result = new PluginResult(PluginResult.Status.OK,
-                                                    gson.toJson(obv));
+                                            PluginResult result = new PluginResult(PluginResult.Status.OK, gson.toJson(obv));
                                             result.setKeepCallback(true);
                                             callbackContext.sendPluginResult(result);
 
@@ -151,15 +134,93 @@ public class StudyExtract extends CordovaPlugin {
                     String studyName = data.getString(0);
                         String mainFolderPath = data.getString(1);
                         String extractedJsonPath = data.getString(2);
-                        File file = new File(mainFolderPath,studyName);
+                        File file = new File(mainFolderPath,studyName + ".db");
                         database = SQLiteDatabase.openOrCreateDatabase(file, null);
                         database.execSQL(CREATE_OBSERVATION_PLOT_TABLE);
                         database.execSQL(CREATE_OBSERVATION_DATA);
                         database.execSQL(CREATE_OBSERVATION_AUDITLOGS);
-                        callbackContext.success("{\"status\":\"done\"}");
+                        database.beginTransaction();    
+                        
+                        reader = new JsonReader(new FileReader(data.getString(0)));
+                        reader.beginObject();
+                        String endPlot = "";
+                        while (reader.hasNext()) {
+                            String name = reader.nextName();
+
+                            if (name.equals("result")) {
+                                progress = "result in";
+                                reader.beginObject();
+
+                                while (reader.hasNext()) {
+                                    String result_name = reader.nextName();
+                                    if (result_name.equals("data")) {
+                                        progress = "data in";
+                                        reader.beginArray();
+                                        Integer loaded = 0;
+                                        while (reader.hasNext()) {
+                                            System.out.println("reader " + loaded++);
+                                            obv = gson.fromJson(reader, ObservationPlot.class);
+                                            //                        		reader.skipValue();
+                                            // System.out.println(gson.toJson(obv));
+                                            ContentValues plotValues = new ContentValues();
+                                            plotValues.set("observationUnitDbId",obv.getObservationUnitDbId());
+                                            plotValues.set("designation",obv.getAdditionalInfo().getDesignation());
+                                            plotValues.set("generation",obv.getAdditionalInfo().getGeneration());
+                                            plotValues.set("plotCode",obv.getAdditionalInfo().getPlotCode());
+                                            plotValues.set("plotKey",obv.getAdditionalInfo().getPlotKey());
+                                            plotValues.set("blockNumber",obv.getBlockNumber());
+                                            plotValues.set("entryNumber",obv.getEntryNumber());
+                                            plotValues.set("entryType",obv.getEntryType());
+                                            plotValues.set("germplasmDbId",obv.getGermplasmDbId());
+                                            plotValues.set("observationUnitName",obv.getObservationUnitName());
+                                            plotValues.set("pedigree",obv.getPedigree());
+                                            plotValues.set0("plantNumber",obv.getPlantNumber());
+                                            plotValues.set("plotNumber",obv.getPlotNumber());
+                                            plotValues.set("replication",obv.getReplication());
+                                            plotValues.set("X",Integer.parseInt(obv.getX()));
+                                            plotValues.set("Y",Integer.parseInt(obv.getY()));
+                                            plotValues.set("isModified",false);
+                                            plotValues.set("study",studyName);
+                                            database.insert(OBSERVATION_PLOT_TABLE, null, plotValues);
+                                            for(PlotObservationData obvData : obv.getObservations()){
+                                                ContentValues observationValues = new ContentValues();
+                                                observationValues.set("collector",obvData.getCollector());
+                                                observationValues.set("observationDbId",obvData.getObservationDbId());
+                                                observationValues.set("observationTimeStamp",obvData.getObservationTimeStamp());
+                                                observationValues.set("observationVariableId",obvData.getObservationVariableId());
+                                                observationValues.set("observationVariableName",obvData.getObservationVariableName());
+
+                                                observationValues.set("value",obvData.getValue());
+
+                                                observationValues.set("status","synced");
+                                                database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
+
+                                            }
+                                            database.setTransactionSuccessful();
+
+
+                                        }
+                                        reader.endArray();
+                                    } else {
+                                        reader.skipValue();
+                                    }
+
+                                }
+
+                                reader.endObject();
+                            } else {// unexpected value, skip it or generate error
+                                reader.skipValue();
+                            }
+                        }
+
+                        reader.endObject();
+                        reader.close();
+                        database.endTransaction();
+                        
+                        callbackContext.success("{\"status\":\"done\",\"error\":\"false\"}");
                     } catch (Exception e) {
                         e.printStackTrace();
-                        callbackContext.error("error:");
+                        callbackContext.error("{\"status\":\"error:\" + "+ e.toString() + ",\"error\":\"true\"}");
 
                     }
                 }
