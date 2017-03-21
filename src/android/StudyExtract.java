@@ -43,11 +43,11 @@ public class StudyExtract extends CordovaPlugin {
 
     String OBSERVATION_DATA_TABLE = "ObservationData";
     String CREATE_OBSERVATION_DATA = "CREATE TABLE `"+ OBSERVATION_DATA_TABLE+"` ("
-            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT,"
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationDbId` TEXT,"
             + "`observationVariableName` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT,"
             + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`status` TEXT" + ");";
     String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
-            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT,"
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationDbId` TEXT,"
             + "`modifiedValues` TEXT," + "`collector` TEXT," + "`observationTimeStamp` TEXT" + ");";
 
     @Override
