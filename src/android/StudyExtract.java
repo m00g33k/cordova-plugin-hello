@@ -170,7 +170,6 @@ public class StudyExtract extends CordovaPlugin {
                                             plotValues.put("plotKey",obv.getAdditionalInfo().getPlotKey());
                                             plotValues.put("blockNumber",obv.getBlockNumber());
                                             plotValues.put("entryNumber",obv.getEntryNumber());
-                                            plotValues.put("entryType",obv.getEntryType());
                                             plotValues.put("germplasmDbId",obv.getGermplasmDbId());
                                             plotValues.put("observationUnitName",obv.getObservationUnitName());
                                             plotValues.put("pedigree",obv.getPedigree());
