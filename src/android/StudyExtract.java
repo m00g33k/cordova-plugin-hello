@@ -184,7 +184,7 @@ public class StudyExtract extends CordovaPlugin {
                                             for(PlotObservationData obvData : obv.getObservations()){
                                                 ContentValues observationValues = new ContentValues();
                                                 observationValues.put("collector",obvData.getCollector());
-                                                observationValues.put("observationUnitDbId", plotValues.getObservationUnitDbId());
+                                                observationValues.put("observationUnitDbId", obv.getObservationUnitDbId());
 
                                                 observationValues.put("observationDbId",obvData.getObservationDbId());
                                                 observationValues.put("observationTimeStamp",obvData.getObservationTimeStamp());
