@@ -43,7 +43,7 @@ public class StudyExtract extends CordovaPlugin {
 
     String OBSERVATION_DATA_TABLE = "ObservationData";
     String CREATE_OBSERVATION_DATA = "CREATE TABLE `"+ OBSERVATION_DATA_TABLE+"` ("
-            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationDbId` TEXT,"
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT," + "`observationDbId` TEXT,"
             + "`observationVariableName` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT,"
             + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`status` TEXT" + ");";
     String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
@@ -184,6 +184,8 @@ public class StudyExtract extends CordovaPlugin {
                                             for(PlotObservationData obvData : obv.getObservations()){
                                                 ContentValues observationValues = new ContentValues();
                                                 observationValues.put("collector",obvData.getCollector());
+                                                observationValues.put("observationUnitDbId", plotValues.getObservationUnitDbId());
+
                                                 observationValues.put("observationDbId",obvData.getObservationDbId());
                                                 observationValues.put("observationTimeStamp",obvData.getObservationTimeStamp());
                                                 observationValues.put("observationVariableId",obvData.getObservationVariableId());
