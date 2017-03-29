@@ -39,7 +39,7 @@ public class StudyExtract extends CordovaPlugin {
             + "	`pedigree`	TEXT," + "	`entryNumber`	TEXT," + "	`plotNumber`	INTEGER," + "	`plantNumber`	TEXT,"
             + "	`blockNumber`	TEXT," + "	`designation`	TEXT," + "	`generation`	TEXT," + "	`plotCode`	TEXT,"
             + "	`plotKey`	TEXT," + "	`X`	INTEGER," + "	`Y`	INTEGER," + "	`replication`	TEXT,"
-            + "	`isModified`	BOOLEAN" + ");";
+            + "	`isModified`	BOOLEAN, `lastModified`   DATETIME" + ");";
 
     String OBSERVATION_DATA_TABLE = "ObservationData";
     String CREATE_OBSERVATION_DATA = "CREATE TABLE `"+ OBSERVATION_DATA_TABLE+"` ("
