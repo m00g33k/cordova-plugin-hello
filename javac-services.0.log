@@ -1,6 +1,6 @@
-INFO	?	main	2017-03-27T07:32:29.439Z	org.javacs.Main#connectToNode	Connected to parent using socket on port 55282
-INFO	?	main	2017-03-27T07:32:29.696Z	org.javacs.JavaLanguageServer#doLint	Lint [/home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java]
-SEVERE	?	main	2017-03-27T07:32:29.942Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+INFO	?	main	2017-04-06T07:06:09.727Z	org.javacs.Main#connectToNode	Connected to parent using socket on port 55282
+INFO	?	main	2017-04-06T07:06:09.956Z	org.javacs.JavaLanguageServer#doLint	Lint [/home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java]
+SEVERE	?	main	2017-04-06T07:06:11.630Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -25,7 +25,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:36.308Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:06:12.861Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -50,7 +50,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:37.060Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:06:13.521Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -75,7 +75,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:37.391Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:06:13.893Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -100,7 +100,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:37.771Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:06:21.942Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -125,7 +125,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:42.363Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:07:42.393Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -150,7 +150,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:45.827Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:07:42.698Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -175,7 +175,7 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:46.723Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
+SEVERE	?	main	2017-04-06T07:07:42.906Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
 	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
 	at java.util.Optional.orElseThrow(Optional.java:290)
@@ -200,376 +200,4 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
-SEVERE	?	main	2017-03-27T07:32:47.291Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:47.643Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:49.839Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:50.320Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:50.604Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$gotoDefinition$32(JavaLanguageServer.java:846)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.gotoDefinition(JavaLanguageServer.java:845)
-	at org.javacs.JavaLanguageServer$1.definition(JavaLanguageServer.java:128)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:134)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:50.827Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:52.203Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$gotoDefinition$32(JavaLanguageServer.java:846)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.gotoDefinition(JavaLanguageServer.java:845)
-	at org.javacs.JavaLanguageServer$1.definition(JavaLanguageServer.java:128)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:134)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:53.251Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:54.948Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:56.079Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:56.388Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:32:58.743Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:33:00.044Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:33:00.720Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$doHover$34(JavaLanguageServer.java:983)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.doHover(JavaLanguageServer.java:982)
-	at org.javacs.JavaLanguageServer.access$000(JavaLanguageServer.java:31)
-	at org.javacs.JavaLanguageServer$1.hover(JavaLanguageServer.java:118)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:130)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-SEVERE	?	main	2017-03-27T07:33:01.304Z	org.javacs.Main$4#onError	Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-org.javacs.NoJavaConfigException: Can't find configuration file for /home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java
-	at org.javacs.JavaLanguageServer.lambda$findCompiler$21(JavaLanguageServer.java:479)
-	at java.util.Optional.orElseThrow(Optional.java:290)
-	at org.javacs.JavaLanguageServer.findCompiler(JavaLanguageServer.java:479)
-	at org.javacs.JavaLanguageServer.findTree(JavaLanguageServer.java:809)
-	at org.javacs.JavaLanguageServer.lambda$gotoDefinition$32(JavaLanguageServer.java:846)
-	at java.util.Optional.ifPresent(Optional.java:159)
-	at org.javacs.JavaLanguageServer.gotoDefinition(JavaLanguageServer.java:845)
-	at org.javacs.JavaLanguageServer$1.definition(JavaLanguageServer.java:128)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint._doAccept(LanguageServerEndpoint.xtend:134)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.doAccept(LanguageServerEndpoint.xtend:117)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend:114)
-	at io.typefox.lsapi.services.transport.server.LanguageServerEndpoint.accept(LanguageServerEndpoint.xtend)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.handleMessage(LanguageEndpoint.xtend:67)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.lambda$connect$4(LanguageEndpoint.xtend:61)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:46)
-	at io.typefox.lsapi.services.json.StreamMessageReader$1.apply(StreamMessageReader.java:44)
-	at io.typefox.lsapi.services.json.StreamMessageReader.handleMessage(StreamMessageReader.xtend:128)
-	at io.typefox.lsapi.services.json.StreamMessageReader.listen(StreamMessageReader.xtend:61)
-	at io.typefox.lsapi.services.transport.AbstractLanguageEndpoint.connect(LanguageEndpoint.xtend:60)
-	at org.javacs.Main.run(Main.java:150)
-	at org.javacs.Main.main(Main.java:69)
-
-INFO	?	main	2017-03-27T07:33:09.011Z	org.javacs.JavaLanguageServer#doLint	Lint [/home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java]
+INFO	?	main	2017-04-06T07:08:12.057Z	org.javacs.JavaLanguageServer#doLint	Lint [/home/dtalay/Projects/cordova-study-extract/src/android/StudyExtract.java]

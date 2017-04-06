@@ -43,7 +43,7 @@ public class StudyExtract extends CordovaPlugin {
 
     String OBSERVATION_DATA_TABLE = "ObservationData";
     String CREATE_OBSERVATION_DATA = "CREATE TABLE `"+ OBSERVATION_DATA_TABLE+"` ("
-            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT," + "`observationDbId` TEXT,"
+            + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`seq_id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT," + "`observationDbId` TEXT,"
             + "`observationVariableName` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT,"
             + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`status` TEXT" + ");";
     String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
@@ -116,7 +116,7 @@ public class StudyExtract extends CordovaPlugin {
 
             return true;
 
-        } 
+        }
         else if (action.equals("extractToSql")){
 
             cordova.getThreadPool().execute(new Runnable() {
@@ -139,8 +139,8 @@ public class StudyExtract extends CordovaPlugin {
                         database.execSQL(CREATE_OBSERVATION_PLOT_TABLE);
                         database.execSQL(CREATE_OBSERVATION_DATA);
                         database.execSQL(CREATE_OBSERVATION_AUDITLOGS);
-                        database.beginTransaction();    
-                        
+                        database.beginTransaction();
+
                         reader = new JsonReader(new FileReader(extractedJsonPath));
                         reader.beginObject();
                         String endPlot = "";
@@ -197,7 +197,7 @@ public class StudyExtract extends CordovaPlugin {
                                                 database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
 
                                             }
-                                          
+
 
 
                                         }
@@ -218,7 +218,7 @@ public class StudyExtract extends CordovaPlugin {
                         reader.close();
                         database.setTransactionSuccessful();
                         database.endTransaction();
-                        
+
                         callbackContext.success("{\"status\":\"done\",\"error\":\"false\"}");
                     } catch (Exception e) {
                         e.printStackTrace();
