@@ -34,7 +34,7 @@ public class StudyExtract extends CordovaPlugin {
     public SQLiteDatabase database;
     String OBSERVATION_PLOT_TABLE = "ObservationPlot";
     String CREATE_OBSERVATION_PLOT_TABLE = "CREATE TABLE `" + OBSERVATION_PLOT_TABLE + "` ("
-            + "	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`seq_id` INTEGER NOT NULL AUTOINCREMENT," + "	`study`	TEXT,"
+            + "	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`seq_id` INTEGER NOT NULL," + "	`study`	TEXT,"
             + "	`observationUnitDbId`	TEXT," + "	`observationUnitName`	TEXT," + "	`germplasmDbId`	TEXT,"
             + "	`pedigree`	TEXT," + "	`entryNumber`	TEXT," + "	`plotNumber`	INTEGER," + "	`plantNumber`	TEXT,"
             + "	`blockNumber`	TEXT," + "	`designation`	TEXT," + "	`generation`	TEXT," + "	`plotCode`	TEXT,"
@@ -157,12 +157,15 @@ public class StudyExtract extends CordovaPlugin {
                                         progress = "data in";
                                         reader.beginArray();
                                         Integer loaded = 0;
+                                        Integer seq_id = 1;
                                         while (reader.hasNext()) {
                                             System.out.println("reader " + loaded++);
                                             obv = gson.fromJson(reader, ObservationPlot.class);
                                             //                        		reader.skipValue();
                                             // System.out.println(gson.toJson(obv));
                                             ContentValues plotValues = new ContentValues();
+                                            plotValues.put("seq_id",seq_id);
+                                            seq_id++;
                                             plotValues.put("observationUnitDbId",obv.getObservationUnitDbId());
                                             plotValues.put("designation",obv.getAdditionalInfo().getDesignation());
                                             plotValues.put("generation",obv.getAdditionalInfo().getGeneration());
