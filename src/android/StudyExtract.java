@@ -162,7 +162,7 @@ public class StudyExtract extends CordovaPlugin {
                       // System.out.println(gson.toJson(obv));
                       ContentValues plotValues = new ContentValues();
                       plotValues.put("seq_x", seq_id);
-                      plotValues.put("seq_x", seq_id);
+                      plotValues.put("seq_y", seq_id);
 
                       seq_id++;
                       plotValues.put("observationUnitDbId", obv.getObservationUnitDbId());
