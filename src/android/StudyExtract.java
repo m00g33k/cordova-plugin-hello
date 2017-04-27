@@ -161,10 +161,9 @@ public class StudyExtract extends CordovaPlugin {
                       //                        		reader.skipValue();
                       // System.out.println(gson.toJson(obv));
                       ContentValues plotValues = new ContentValues();
-                      plotValues.put("seq_x", seq_id);
-                      plotValues.put("seq_y", seq_id);
+                      plotValues.put("seq_x", obv.getAdditionalInfo().getSeqHorizontal());
+                      plotValues.put("seq_y", obv.getAdditionalInfo().getSeqVertical());
 
-                      seq_id++;
                       plotValues.put("observationUnitDbId", obv.getObservationUnitDbId());
                       plotValues.put("designation", obv.getAdditionalInfo().getDesignation());
                       plotValues.put("generation", obv.getAdditionalInfo().getGeneration());
@@ -396,6 +395,24 @@ public class StudyExtract extends CordovaPlugin {
     private String designation;
     private String generation;
 
+    private Integer seqHorizontal;
+    private Integer seqVertical;
+
+    public Integer getSeqHorizontal() {
+      return seqHorizontal;
+    }
+
+    public void setSeqHorizontal(Integer seqHorizontal) {
+      this.seqHorizontal = seqHorizontal;
+    }
+
+    public Integer getSeqVertical() {
+      return seqVertical;
+    }
+
+    public void setSeqVertical(Integer seqVertical) {
+      this.seqVertical = seqVertical;
+    }
     public String getDesignation() {
       return designation;
     }
