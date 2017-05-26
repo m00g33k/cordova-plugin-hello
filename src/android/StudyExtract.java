@@ -465,11 +465,11 @@ public class StudyExtract extends CordovaPlugin {
     private String observationDbId;
 
     private String observationVariableName;
-    
+
     private String remarks;
     private Boolean for_deletion;
-    
-    
+
+
     public String getRemarks(){
     	return remarks;
     }
@@ -480,7 +480,7 @@ public class StudyExtract extends CordovaPlugin {
     	return for_deletion;
     }
     public void setFor_deletion(Boolean for_deletion){
-    	return for_deletion
+    	return for_deletion;
     }
 
     public String getCollector() {
