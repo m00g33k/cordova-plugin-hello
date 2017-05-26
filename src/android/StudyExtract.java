@@ -480,7 +480,7 @@ public class StudyExtract extends CordovaPlugin {
     	return for_deletion;
     }
     public void setFor_deletion(Boolean for_deletion){
-    	return for_deletion;
+    	this.for_deletion = for_deletion;
     }
 
     public String getCollector() {
