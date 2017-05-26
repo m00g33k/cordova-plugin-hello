@@ -196,6 +196,8 @@ public class StudyExtract extends CordovaPlugin {
 
                         observationValues.put("synced", true);
                         observationValues.put("status", "synced");
+                        observationValues.put("remarks",obvData.getRemarks());
+                        observationValues.put("for_deletion",obvData.isFor_deletion());
                         database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
 
                       }
@@ -463,6 +465,23 @@ public class StudyExtract extends CordovaPlugin {
     private String observationDbId;
 
     private String observationVariableName;
+    
+    private String remarks;
+    private Boolean for_deletion;
+    
+    
+    public String getRemarks(){
+    	return remarks;
+    }
+    public void setRemarks(String remarks){
+    	this.remarks = remarks;
+    }
+    public Boolean isFor_deletion(){
+    	return for_deletion;
+    }
+    public void setFor_deletion(Boolean for_deletion){
+    	return for_deletion
+    }
 
     public String getCollector() {
       return collector;
