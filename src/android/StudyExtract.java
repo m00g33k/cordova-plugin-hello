@@ -244,6 +244,7 @@ public class StudyExtract extends CordovaPlugin {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           try {
+            Log.d("B4RMobileApp", "init");
             JsonWriter writer = new JsonWriter(new FileWriter(extractedJsonPath));
             writer.beginObject();
             writer.name("result");
@@ -252,11 +253,15 @@ public class StudyExtract extends CordovaPlugin {
             writer.name("commit").value("false");
             writer.name("data");
             writer.beginArray();
+            Log.d("B4RMobileApp", "staring loop");
             for (String studyName : studyDbs) {
 
               File file = new File(mainFolderPath, studyName + ".db");
+              Log.d("B4RMobileApp", "open database " + studyName + ".db");
               database = SQLiteDatabase.openOrCreateDatabase(file, null);
-              String[] plotColumns = { "observationUnitDbId" };
+              String[] plotColumns = { "observationUnitDbId","isModified" };
+
+              Log.d("B4RMobileApp", "Getting plot query");
               Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified=true", null, null,
                   null, null);
               plotCursor.moveToFirst();
@@ -267,11 +272,14 @@ public class StudyExtract extends CordovaPlugin {
                 writer.name("observationUnitDbId").value(plotCursor.getString(0));
                 writer.name("observations");
                 writer.beginArray();
+
+                Log.d("B4RMobileApp", "Getting obv query");
                 Cursor obvCursor = database.query(OBSERVATION_DATA_TABLE,
                     new String[] { "observationUnitDbId", "observationDbId", "observationVariableName",
                         "observationVariableId", "collector", "remarks", "observationTimeStamp", "value" },
                     "status='modified' AND observationUnitDbId='" + plotCursor.getString(0) + "'", null, null, null,
                     null);
+                obvCursor.moveToFirst();
                 while (!obvCursor.isAfterLast()) {
 
                   writer.beginObject();
