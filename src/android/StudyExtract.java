@@ -263,8 +263,8 @@ public class StudyExtract extends CordovaPlugin {
               while (!plotCursor.isAfterLast()) {
                 writer.beginObject();
 
-                writer.name("studyDbId").value(studyName.replace("study-",""));
-                writer.name("observationUnitDbId", plotCursor.getString(0));
+                writer.name("studyDbId").value(studyName.replace("study-", ""));
+                writer.name("observationUnitDbId").value(plotCursor.getString(0));
                 writer.name("observations");
                 writer.beginArray();
                 Cursor obvCursor = database.query(OBSERVATION_DATA_TABLE,
