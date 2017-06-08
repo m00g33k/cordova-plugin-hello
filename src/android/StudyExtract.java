@@ -268,7 +268,7 @@ public class StudyExtract extends CordovaPlugin {
                 writer.name("observationUnitDbId", plotCursor.getString(0));
                 writer.name("observations");
                 writer.beginArray();
-                Cursor obvCursor = database.rawQuery(OBSERVATION_DATA_TABLE,
+                Cursor obvCursor = database.query(OBSERVATION_DATA_TABLE,
                     new String[] { "observationUnitDbId", "observationDbId", "observationVariableName",
                         "observationVariableId", "collector", "remarks", "observationTimeStamp", "value" },
                     "status='modified' AND observationUnitDbId='" + plotCursor.getString(0) + "'", null, null, null,
