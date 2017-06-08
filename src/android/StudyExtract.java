@@ -252,11 +252,10 @@ public class StudyExtract extends CordovaPlugin {
             writer.name("commit").value("false");
             writer.name("data");
             writer.beginArray();
-            for (int i = 0; i < studyDbs.length; i++) {
-              String studyName = studyDbs[i];
+            for (String studyName : studyDbs) {
 
               File file = new File(mainFolderPath, studyName + ".db");
-              database = SQLiteDatabase.openDatabase(file, null);
+              database = SQLiteDatabase.openDatabase(file);
               String[] plotColumns = { "observationUnitDbId" };
               Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified=true", null, null,
                   null, null);
