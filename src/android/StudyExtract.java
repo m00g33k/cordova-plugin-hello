@@ -255,7 +255,7 @@ public class StudyExtract extends CordovaPlugin {
             for (String studyName : studyDbs) {
 
               File file = new File(mainFolderPath, studyName + ".db");
-              database = SQLiteDatabase.openDatabase(file);
+              database = SQLiteDatabase.openOrCreateDatabase(file, null);
               String[] plotColumns = { "observationUnitDbId" };
               Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified=true", null, null,
                   null, null);
@@ -263,7 +263,7 @@ public class StudyExtract extends CordovaPlugin {
               while (!plotCursor.isAfterLast()) {
                 writer.beginObject();
 
-                writer.name("studyDbId").value(studyName.remove("study-"));
+                writer.name("studyDbId").value(studyName.replace("study-",""));
                 writer.name("observationUnitDbId", plotCursor.getString(0));
                 writer.name("observations");
                 writer.beginArray();
