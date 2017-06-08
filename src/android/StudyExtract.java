@@ -235,7 +235,7 @@ public class StudyExtract extends CordovaPlugin {
       });
 
       return true;
-    } else if (action.equals("extractFromSql")) {
+    } else if (action.equals("extractToJson")) {
       final String studyIDs = data.getString(0);
       final String[] studyDbs = studyIDs.split(",");
 
