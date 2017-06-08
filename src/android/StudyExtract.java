@@ -236,11 +236,11 @@ public class StudyExtract extends CordovaPlugin {
 
       return true;
     } else if (action.equals("extractFromSql")) {
-      String studyIDs = data.getString(0);
-      String[] studyDbs = studyIDs.split(",");
+      final String studyIDs = data.getString(0);
+      final String[] studyDbs = studyIDs.split(",");
 
-      String mainFolderPath = data.getString(1);
-      String extractedJsonPath = data.getString(2);
+      final String mainFolderPath = data.getString(1);
+      final String extractedJsonPath = data.getString(2);
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           try {
