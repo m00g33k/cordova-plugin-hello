@@ -19,8 +19,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -34,18 +36,19 @@ public class StudyExtract extends CordovaPlugin {
   public SQLiteDatabase database;
   String OBSERVATION_PLOT_TABLE = "ObservationPlot";
   String CREATE_OBSERVATION_PLOT_TABLE = "CREATE TABLE `" + OBSERVATION_PLOT_TABLE + "` ("
-      + "	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`seq_x` INTEGER,`seq_y` INTEGER,"
-      + "	`study`	TEXT," + "	`observationUnitDbId`	TEXT," + "	`observationUnitName`	TEXT,"
-      + "	`germplasmDbId`	TEXT," + "	`pedigree`	TEXT," + "	`entryNumber`	TEXT," + "	`plotNumber`	INTEGER,"
-      + "	`plantNumber`	TEXT," + "	`blockNumber`	TEXT," + "	`designation`	TEXT," + "	`generation`	TEXT,"
-      + "	`plotCode`	TEXT," + "	`plotKey`	TEXT," + "	`X`	INTEGER," + "	`Y`	INTEGER,"
-      + "	`replication`	TEXT," + "	`isModified`	BOOLEAN, `lastModified`   DATETIME" + ");";
+      + "	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`seq_x` INTEGER,`seq_y` INTEGER," + "	`study`	TEXT,"
+      + "	`observationUnitDbId`	TEXT," + "	`observationUnitName`	TEXT," + "	`germplasmDbId`	TEXT,"
+      + "	`pedigree`	TEXT," + "	`entryNumber`	TEXT," + "	`plotNumber`	INTEGER," + "	`plantNumber`	TEXT,"
+      + "	`blockNumber`	TEXT," + "	`designation`	TEXT," + "	`generation`	TEXT," + "	`plotCode`	TEXT,"
+      + "	`plotKey`	TEXT," + "	`X`	INTEGER," + "	`Y`	INTEGER," + "	`replication`	TEXT,"
+      + "	`isModified`	BOOLEAN, `lastModified`   DATETIME" + ");";
 
   String OBSERVATION_DATA_TABLE = "ObservationData";
   String CREATE_OBSERVATION_DATA = "CREATE TABLE `" + OBSERVATION_DATA_TABLE + "` ("
       + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT," + "`observationDbId` TEXT,"
       + "`observationVariableName` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT," + "`remarks` TEXT,"
-      + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`synced` BOOLEAN," + "`for_deletion` BOOLEAN," + "`status` TEXT" + ");";
+      + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`synced` BOOLEAN," + "`for_deletion` BOOLEAN,"
+      + "`status` TEXT" + "`remarks_status` TEXT" + ");";
   String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
       + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT," + "`modifiedValues` TEXT,"
       + "`collector` TEXT," + "`observationTimeStamp` TEXT" + ");";
@@ -119,6 +122,7 @@ public class StudyExtract extends CordovaPlugin {
     } else if (action.equals("extractToSql")) {
 
       cordova.getThreadPool().execute(new Runnable() {
+
         public void run() {
           JsonReader reader;
 
@@ -196,8 +200,8 @@ public class StudyExtract extends CordovaPlugin {
 
                         observationValues.put("synced", true);
                         observationValues.put("status", "synced");
-                        observationValues.put("remarks",obvData.getRemarks());
-                        observationValues.put("for_deletion",obvData.isFor_deletion());
+                        observationValues.put("remarks", obvData.getRemarks());
+                        observationValues.put("for_deletion", obvData.isFor_deletion());
                         database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
 
                       }
@@ -230,6 +234,79 @@ public class StudyExtract extends CordovaPlugin {
         }
       });
 
+      return true;
+    } else if (action.equals("extractFromSql")) {
+      String studyIDs = data.getString(0);
+      String[] studyDbs = studyIDs.split(",");
+
+      String mainFolderPath = data.getString(1);
+      String extractedJsonPath = data.getString(2);
+      cordova.getThreadPool().execute(new Runnable() {
+        public void run() {
+          try {
+            writer = new JsonWriter(new FileWriter(extractedJsonPath));
+            writer.beginObject();
+            writer.name("result");
+            writer.beginObject();
+            writer.name("transactionDbId").value("");
+            writer.name("commit").value("false");
+            writer.name("data");
+            writer.beginArray();
+            for (int i = 0; i < studyDbs.length; i++) {
+              String studyName = studyDbs[i];
+
+              File file = new File(mainFolderPath, studyName + ".db");
+              database = SQLiteDatabase.openDatabase(file, null);
+              String[] plotColumns = { "observationUnitDbId" };
+              Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified=true", null, null,
+                  null, null);
+              plotCursor.moveToFirst();
+              while (!plotCursor.isAfterLast()) {
+                writer.beginObject();
+
+                writer.name("studyDbId").value(studyName.remove("study-"));
+                writer.name("observationUnitDbId", plotCursor.getString(0));
+                writer.name("observations");
+                writer.beginArray();
+                Cursor obvCursor = database.rawQuery(OBSERVATION_DATA_TABLE,
+                    new String[] { "observationUnitDbId", "observationDbId", "observationVariableName",
+                        "observationVariableId", "collector", "remarks", "observationTimeStamp", "value" },
+                    "status='modified' AND observationUnitDbId='" + plotCursor.getString(0) + "'", null, null, null,
+                    null);
+                while (!obvCursor.isAfterLast()) {
+
+                  writer.beginObject();
+                  writer.name("observationUnitDbId").value(obvCursor.getString(0));
+                  writer.name("observationDbId").value(obvCursor.getString(1));
+                  writer.name("observationVariableName").value(obvCursor.getString(2));
+                  writer.name("observationVariableId").value(obvCursor.getString(3));
+                  writer.name("collector").value(obvCursor.getString(4));
+                  writer.name("remarks").value(obvCursor.getString(5));
+                  writer.name("observationTimeStamp").value(obvCursor.getString(6));
+                  writer.name("value").value(obvCursor.getString(7));
+                  writer.endObject();
+                  obvCursor.moveToNext();
+                }
+                obvCursor.close();
+                writer.endArray();
+
+                writer.endObject();
+                plotCursor.moveToNext();
+
+              }
+              plotCursor.close();
+            }
+            writer.endArray();
+            writer.endObject();
+            writer.endObject();
+
+          } catch (IOException e) {
+            e.printStackTrace();
+            callbackContext.error("{\"status\":\"error:\" + " + e.toString() + ",\"error\":\"true\"}");
+          }
+        }
+
+      });
       return true;
     } else {
 
@@ -415,6 +492,7 @@ public class StudyExtract extends CordovaPlugin {
     public void setSeqVertical(Integer seqVertical) {
       this.seqVertical = seqVertical;
     }
+
     public String getDesignation() {
       return designation;
     }
@@ -467,20 +545,31 @@ public class StudyExtract extends CordovaPlugin {
     private String observationVariableName;
 
     private String remarks;
+    private String remarks_status;
     private Boolean for_deletion;
 
+    public String getRemarks() {
+      return remarks;
+    }
 
-    public String getRemarks(){
-    	return remarks;
+    public void setRemarks(String remarks) {
+      this.remarks = remarks;
     }
-    public void setRemarks(String remarks){
-    	this.remarks = remarks;
+
+    public String getRemarks_status() {
+      return remarks;
     }
-    public Boolean isFor_deletion(){
-    	return for_deletion;
+
+    public void setRemarks_status(String remarks) {
+      this.remarks = remarks;
     }
-    public void setFor_deletion(Boolean for_deletion){
-    	this.for_deletion = for_deletion;
+
+    public Boolean isFor_deletion() {
+      return for_deletion;
+    }
+
+    public void setFor_deletion(Boolean for_deletion) {
+      this.for_deletion = for_deletion;
     }
 
     public String getCollector() {
