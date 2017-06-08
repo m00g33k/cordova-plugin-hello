@@ -244,7 +244,7 @@ public class StudyExtract extends CordovaPlugin {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           try {
-            writer = new JsonWriter(new FileWriter(extractedJsonPath));
+            JsonWriter writer = new JsonWriter(new FileWriter(extractedJsonPath));
             writer.beginObject();
             writer.name("result");
             writer.beginObject();
