@@ -298,7 +298,8 @@ public class StudyExtract extends CordovaPlugin {
             writer.endArray();
             writer.endObject();
             writer.endObject();
-
+            writer.close();
+            callbackContext.success("{\"status\":\"done\",\"error\":\"false\"}");
           } catch (IOException e) {
             e.printStackTrace();
             callbackContext.error("{\"status\":\"error:\" + " + e.toString() + ",\"error\":\"true\"}");

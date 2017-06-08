@@ -11,7 +11,8 @@ module.exports = {
       cordova.exec(successCallback, errorCallback, "StudyExtract", "extractToSql", [studyName, mainFolderPath, extractedJsonPath]);
     },
   extractToJson: function (studyName, mainFolderPath, extractedJsonPath, successCallback, errorCallback) {
-    cordova.exec(successCallback, errorCallback, "StudyExtract", "extractToSql", [studyName, mainFolderPath, extractedJsonPath]);
+    cordova.exec(successCallback, errorCallback, "StudyExtract", "extractToJson", [studyName, mainFolderPath, extractedJsonPath]);
+
   }
 
 };
