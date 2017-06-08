@@ -262,7 +262,7 @@ public class StudyExtract extends CordovaPlugin {
               String[] plotColumns = { "observationUnitDbId","isModified" };
 
               Log.d("B4RMobileApp", "Getting plot query");
-              Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified=true", null, null,
+              Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified='true'", null, null,
                   null, null);
               plotCursor.moveToFirst();
               while (!plotCursor.isAfterLast()) {
