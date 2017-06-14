@@ -30,6 +30,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.content.ContentValues;
+import android.database.DatabaseUtils;
 
 public class StudyExtract extends CordovaPlugin {
 
@@ -235,6 +236,115 @@ public class StudyExtract extends CordovaPlugin {
       });
 
       return true;
+    } else if (action.equals("extractUpdateToSql")) {
+
+      cordova.getThreadPool().execute(new Runnable() {
+
+        public void run() {
+          JsonReader reader;
+
+          String progress = "nothing";
+
+          Gson gson = new Gson();
+          ObservationPlot obv = new ObservationPlot();
+          try {
+
+            String studyName = "START";
+            String mainFolderPath = data.getString(1);
+            String extractedJsonPath = data.getString(2);
+
+            reader = new JsonReader(new FileReader(extractedJsonPath));
+            reader.beginObject();
+            String endPlot = "";
+            while (reader.hasNext()) {
+
+              String name = reader.nextName();
+
+              if (name.equals("result")) {
+                progress = "result in";
+                reader.beginObject();
+
+                while (reader.hasNext()) {
+                  String result_name = reader.nextName();
+                  if (result_name.equals("data")) {
+                    progress = "data in";
+                    reader.beginArray();
+                    Integer loaded = 0;
+                    Integer seq_id = 1;
+                    while (reader.hasNext()) {
+                      System.out.println("reader " + loaded++);
+                      obv = gson.fromJson(reader, ObservationPlot.class);
+                      if (!obv.getStudyDbId().equals(studyName)) {
+                        studyName = obv.getStudyDbId();
+                        File file = new File(mainFolderPath, "study-" + studyName + ".db");
+                        database = SQLiteDatabase.openOrCreateDatabase(file, null);
+                      }
+
+                      //                        		reader.skipValue();
+                      // System.out.println(gson.toJson(obv));
+                      for (PlotObservationData obvData : obv.getObservations()) {
+                        database.beginTransaction();
+                        ContentValues observationValues = new ContentValues();
+                        observationValues.put("collector", obvData.getCollector());
+                        observationValues.put("observationUnitDbId", obv.getObservationUnitDbId());
+
+                        observationValues.put("observationDbId", obvData.getObservationDbId());
+                        observationValues.put("observationTimeStamp", obvData.getObservationTimeStamp());
+                        observationValues.put("observationVariableId", obvData.getObservationVariableId());
+                        observationValues.put("observationVariableName", obvData.getObservationVariableName());
+
+                        observationValues.put("value", obvData.getValue());
+
+                        observationValues.put("synced", true);
+                        observationValues.put("status", "synced");
+                        observationValues.put("remarks", obvData.getRemarks());
+                        observationValues.put("for_deletion", obvData.isFor_deletion());
+                        long count = DatabaseUtils.queryNumEntries(database,OBSERVATION_DATA_TABLE,"observationUnitDbId = ?, observationVariableId = ?, observationVariableName = ?,",new String[]{obv.getObservationUnitDbId(),obvData.getObservationVariableId(),obvData.getObservationVariableName()});
+
+                        if(count > 0){
+                          database.update(OBSERVATION_DATA_TABLE,
+                              "observationUnitDbId = ?, observationVariableId = ?, observationVariableName = ?,",
+                              new String[] { obv.getObservationUnitDbId(), obvData.getObservationVariableId(),
+                                  obvData.getObservationVariableName() });
+
+                        }
+                        else {
+
+                          database.insert(OBSERVATION_DATA_TABLE, null, observationValues);
+
+                        }
+
+                        database.setTransactionSuccessful();
+                        database.endTransaction();
+                      }
+
+                    }
+                    reader.endArray();
+                  } else {
+                    reader.skipValue();
+                  }
+
+                }
+
+                reader.endObject();
+              } else {// unexpected value, skip it or generate error
+                reader.skipValue();
+              }
+            }
+
+            reader.endObject();
+            reader.close();
+
+            callbackContext.success("{\"status\":\"done\",\"error\":\"false\"}");
+          } catch (Exception e) {
+            e.printStackTrace();
+            callbackContext.error("{\"status\":\"error:\" + " + e.toString() + ",\"error\":\"true\"}");
+
+          }
+        }
+      });
+
+      return true;
     } else if (action.equals("extractToJson")) {
       final String studyIDs = data.getString(0);
       final String[] studyDbs = studyIDs.split(",");
@@ -259,7 +369,7 @@ public class StudyExtract extends CordovaPlugin {
               File file = new File(mainFolderPath, studyName + ".db");
               Log.d("B4RMobileApp", "open database " + studyName + ".db");
               database = SQLiteDatabase.openOrCreateDatabase(file, null);
-              String[] plotColumns = { "observationUnitDbId","isModified" };
+              String[] plotColumns = { "observationUnitDbId", "isModified" };
 
               Log.d("B4RMobileApp", "Getting plot query");
               Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified='true'", null, null,
@@ -348,7 +458,17 @@ public class StudyExtract extends CordovaPlugin {
 
     private String blockNumber;
 
+    private String studyDbId;
+
     private PlotObservationAdditionalInfo additionalInfo;
+
+    public String getStudyDbId() {
+      return studyDbId;
+    }
+
+    public void setStudyDbId(String studyDbId) {
+      this.studyDbId = studyDbId;
+    }
 
     public List<PlotObservationData> getObservations() {
       return observations;
