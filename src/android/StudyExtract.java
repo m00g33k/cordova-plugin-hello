@@ -303,7 +303,7 @@ public class StudyExtract extends CordovaPlugin {
 
                         if(count > 0){
                           database.update(OBSERVATION_DATA_TABLE,observationValues,
-                              "observationUnitDbId = ?, observationVariableId = ?, observationVariableName = ?,",
+                              "observationUnitDbId = ?, observationVariableId = ?, observationVariableName = ?",
                               new String[] { obv.getObservationUnitDbId(), obvData.getObservationVariableId(),
                                   obvData.getObservationVariableName() });
 
