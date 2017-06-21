@@ -386,7 +386,7 @@ public class StudyExtract extends CordovaPlugin {
                 Log.d("B4RMobileApp", "Getting obv query");
                 Cursor obvCursor = database.query(OBSERVATION_DATA_TABLE,
                     new String[] { "observationUnitDbId", "observationDbId", "observationVariableName",
-                        "observationVariableId", "collector", "remarks", "observationTimeStamp", "value" },
+                        "observationVariableId", "collector", "remarks", "observationTimeStamp", "value","for_deletion" },
                     "status='modified' AND observationUnitDbId='" + plotCursor.getString(0) + "'", null, null, null,
                     null);
                 obvCursor.moveToFirst();
@@ -401,6 +401,7 @@ public class StudyExtract extends CordovaPlugin {
                   writer.name("remarks").value(obvCursor.getString(5));
                   writer.name("observationTimeStamp").value(obvCursor.getString(6));
                   writer.name("value").value(obvCursor.getString(7));
+                  writer.name("is_void").value(obvCursor.getBoolean(8));
                   writer.endObject();
                   obvCursor.moveToNext();
                 }
