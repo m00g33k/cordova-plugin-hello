@@ -47,7 +47,7 @@ public class StudyExtract extends CordovaPlugin {
   String OBSERVATION_DATA_TABLE = "ObservationData";
   String CREATE_OBSERVATION_DATA = "CREATE TABLE `" + OBSERVATION_DATA_TABLE + "` ("
       + "`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," + "`observationUnitDbId` TEXT," + "`observationDbId` TEXT,"
-      + "`observationVariableName` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT," + "`remarks` TEXT,"
+      + "`observationVariableName` TEXT," + "`observationVariableLabel` TEXT," + "`observationVariableId` TEXT," + "`collector` TEXT," + "`remarks` TEXT,"
       + "`observationTimeStamp` TEXT," + "`value` TEXT," + "`synced` BOOLEAN," + "`for_deletion` BOOLEAN,"
       + "`status` TEXT" + "`remarks_status` TEXT" + ");";
   String CREATE_OBSERVATION_AUDITLOGS = "CREATE TABLE `ObservationAuditLogs` ("
@@ -197,8 +197,8 @@ public class StudyExtract extends CordovaPlugin {
                         observationValues.put("observationVariableId", obvData.getObservationVariableId());
                         observationValues.put("observationVariableName", obvData.getObservationVariableName());
 
+                        observationValues.put("observationVariableLabel",obvData.getAdditionalInfo().getObservationVariableLabel());
                         observationValues.put("value", obvData.getValue());
-
                         observationValues.put("synced", true);
                         observationValues.put("status", "synced");
                         observationValues.put("remarks", obvData.getRemarks());
@@ -292,6 +292,7 @@ public class StudyExtract extends CordovaPlugin {
                         observationValues.put("observationTimeStamp", obvData.getObservationTimeStamp());
                         observationValues.put("observationVariableId", obvData.getObservationVariableId());
                         observationValues.put("observationVariableName", obvData.getObservationVariableName());
+                        observationValues.put("observationVariableLabel",obvData.getAdditionalInfo().getObservationVariableLabel());
 
                         observationValues.put("value", obvData.getValue());
 
@@ -660,6 +661,16 @@ public class StudyExtract extends CordovaPlugin {
     }
   }
 
+  public class PlotObservationDataAdditionalInfo {
+    private String observationVariableLabel;
+
+    public string getObservationVariableLabel(){
+      return observationVariableLabel;
+    }
+    public void setObservationVariableLabel(String observationVariabelLabel){
+      this.observationVariableLabel = observationVariabelLabel;
+    }
+  }
   public class PlotObservationData {
     private String collector;
 
@@ -672,11 +683,18 @@ public class StudyExtract extends CordovaPlugin {
     private String observationDbId;
 
     private String observationVariableName;
-
+    private PlotObservationDataAdditionalInfo additionalInfo;
     private String remarks;
     private String remarks_status;
     private Boolean for_deletion;
 
+
+    public PlotObservationDataAdditionalInfo getAdditionalInfo(){
+      return additionalInfo;
+    }
+    public void setAdditionalInfo(PlotObservationDataAdditionalInfo additionalInfo){
+      this.additionalInfo = additionalInfo;
+    }
     public String getRemarks() {
       return remarks;
     }
