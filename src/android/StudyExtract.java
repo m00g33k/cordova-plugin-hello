@@ -664,7 +664,7 @@ public class StudyExtract extends CordovaPlugin {
   public class PlotObservationDataAdditionalInfo {
     private String observationVariableLabel;
 
-    public string getObservationVariableLabel(){
+    public String getObservationVariableLabel(){
       return observationVariableLabel;
     }
     public void setObservationVariableLabel(String observationVariabelLabel){
