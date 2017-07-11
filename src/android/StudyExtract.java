@@ -402,7 +402,7 @@ public class StudyExtract extends CordovaPlugin {
                   writer.name("remarks").value(obvCursor.getString(5));
                   writer.name("observationTimeStamp").value(obvCursor.getString(6));
                   writer.name("value").value(obvCursor.getString(7));
-                  writer.name("is_void").value(obvCursor.getInt(8) > 0);
+                  writer.name("is_void").value(obvCursor.getInt(8) == 1);
                   writer.endObject();
                   obvCursor.moveToNext();
                 }
