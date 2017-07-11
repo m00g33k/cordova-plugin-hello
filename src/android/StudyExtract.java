@@ -84,7 +84,7 @@ public class StudyExtract extends CordovaPlugin {
                     reader.beginArray();
                     Integer loaded = 0;
                     while (reader.hasNext()) {
-                      System.out.println("reader " + loaded++);
+                      // System.out.println("reader " + loaded++);
                       obv = gson.fromJson(reader, ObservationPlot.class);
                       //                        		reader.skipValue();
                       // System.out.println(gson.toJson(obv));
@@ -161,7 +161,7 @@ public class StudyExtract extends CordovaPlugin {
                     Integer loaded = 0;
                     Integer seq_id = 1;
                     while (reader.hasNext()) {
-                      System.out.println("reader " + loaded++);
+                      // System.out.println("reader " + loaded++);
                       obv = gson.fromJson(reader, ObservationPlot.class);
                       //                        		reader.skipValue();
                       // System.out.println(gson.toJson(obv));
@@ -272,11 +272,17 @@ public class StudyExtract extends CordovaPlugin {
                     Integer loaded = 0;
                     Integer seq_id = 1;
                     while (reader.hasNext()) {
-                      System.out.println("reader " + loaded++);
+                      // System.out.println("reader " + loaded++);
                       obv = gson.fromJson(reader, ObservationPlot.class);
                       if (!obv.getStudyDbId().equals(studyName)) {
                         studyName = obv.getStudyDbId();
+
                         File file = new File(mainFolderPath, "study-" + studyName + ".db");
+                        if(!studyName.equals("START")) {
+                          Log.d("org.irri.b4rmobile","closing DATABASE");
+                          database.close();
+                        }
+
                         database = SQLiteDatabase.openOrCreateDatabase(file, null);
                       }
 
@@ -355,7 +361,7 @@ public class StudyExtract extends CordovaPlugin {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           try {
-            Log.d("B4RMobileApp", "init");
+            // Log.d("B4RMobileApp", "init");
             JsonWriter writer = new JsonWriter(new FileWriter(extractedJsonPath));
             writer.beginObject();
             writer.name("result");
@@ -364,15 +370,15 @@ public class StudyExtract extends CordovaPlugin {
             writer.name("commit").value("false");
             writer.name("data");
             writer.beginArray();
-            Log.d("B4RMobileApp", "staring loop");
+            // Log.d("B4RMobileApp", "staring loop");
             for (String studyName : studyDbs) {
 
               File file = new File(mainFolderPath, studyName + ".db");
-              Log.d("B4RMobileApp", "open database " + studyName + ".db");
+              // Log.d("B4RMobileApp", "open database " + studyName + ".db");
               database = SQLiteDatabase.openOrCreateDatabase(file, null);
               String[] plotColumns = { "observationUnitDbId", "isModified" };
 
-              Log.d("B4RMobileApp", "Getting plot query");
+              // Log.d("B4RMobileApp", "Getting plot query");
               Cursor plotCursor = database.query(OBSERVATION_PLOT_TABLE, plotColumns, "isModified='true'", null, null,
                   null, null);
               plotCursor.moveToFirst();
@@ -384,7 +390,7 @@ public class StudyExtract extends CordovaPlugin {
                 writer.name("observations");
                 writer.beginArray();
 
-                Log.d("B4RMobileApp", "Getting obv query");
+                // Log.d("B4RMobileApp", "Getting obv query");
                 Cursor obvCursor = database.query(OBSERVATION_DATA_TABLE,
                     new String[] { "observationUnitDbId", "observationDbId", "observationVariableName",
                         "observationVariableId", "collector", "remarks", "observationTimeStamp", "value","for_deletion" },
@@ -402,6 +408,7 @@ public class StudyExtract extends CordovaPlugin {
                   writer.name("remarks").value(obvCursor.getString(5));
                   writer.name("observationTimeStamp").value(obvCursor.getString(6));
                   writer.name("value").value(obvCursor.getString(7));
+                  // Log.d("B4RMobileApp", "for_deletion", obvCursor.getString(8));
                   writer.name("is_void").value(obvCursor.getString(8));
                   writer.endObject();
                   obvCursor.moveToNext();
