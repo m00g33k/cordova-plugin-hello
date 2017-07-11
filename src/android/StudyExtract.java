@@ -275,13 +275,14 @@ public class StudyExtract extends CordovaPlugin {
                       // System.out.println("reader " + loaded++);
                       obv = gson.fromJson(reader, ObservationPlot.class);
                       if (!obv.getStudyDbId().equals(studyName)) {
+                        if (!studyName.equals("START")) {
+                          Log.d("org.irri.b4rmobile", "closing DATABASE");
+                          database.close();
+                        }
+
                         studyName = obv.getStudyDbId();
 
                         File file = new File(mainFolderPath, "study-" + studyName + ".db");
-                        if(!studyName.equals("START")) {
-                          Log.d("org.irri.b4rmobile","closing DATABASE");
-                          database.close();
-                        }
 
                         database = SQLiteDatabase.openOrCreateDatabase(file, null);
                       }
