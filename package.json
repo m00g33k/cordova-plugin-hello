@@ -1,0 +1,28 @@
+{
+    "name": "b4rmobile-study-extract",
+    "version": "0.0.4",
+    "description": "Extract Observation Data from Brapi",
+    "cordova": {
+        "id": "org.irri.breeding4rice.cordova",
+        "platforms": [
+            "android"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://m00g33k@github.com/m00g33k/cordova-study-extract.git"
+    },
+    "keywords": [
+        "cordova",
+        "brapi"
+     ],
+    "engines": [
+        {
+            "name": "cordova",
+            "version": ">=3.6.0"
+        }
+    ],
+    "author": "Breeding 4 Rice - IRRI",
+    "license": "MIT",
+    "homepage": "https://github.com/m00g33k/cordova-study-extract"
+}
